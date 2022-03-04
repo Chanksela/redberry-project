@@ -1,5 +1,5 @@
 import React from "react";
-import Welcome from "./FirstPage.module.css";
+import Welcome from "./Welcome.module.css";
 import astro from "../Pictures/rocketman.png";
 function FirstPage() {
   return (

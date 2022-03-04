@@ -1,9 +1,9 @@
-import FirstPage from "./Components/FirstPage";
+import Welcome from "./Components/Welcome";
 
 function App() {
   return (
     <div className="App">
-      <FirstPage />
+      <Welcome />
     </div>
   );
 }
