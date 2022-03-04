@@ -1,9 +1,10 @@
-import Welcome from "./Components/Welcome";
+import Survey from "./Components/Survey";
+import Welcome from "./Components/Survey";
 
 function App() {
   return (
     <div className="App">
-      <Welcome />
+      <Survey />
     </div>
   );
 }

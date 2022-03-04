@@ -1,0 +1,23 @@
+#container {
+  width: auto;
+  height: 100vh;
+  border: 4px solid red;
+  display: flex;
+  flex-direction: row;
+}
+#left {
+  border: 1px blue solid;
+  background-color: var(--redberry-white);
+  position: absolute;
+  left: 0px;
+  height: 100vh;
+  width: 50%;
+}
+#right {
+  border: 1px red solid;
+  background-color: var(--primary-bg);
+  position: absolute;
+  right: 0px;
+  height: 100vh;
+  width: 50%;
+}

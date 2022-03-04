@@ -8,4 +8,7 @@
   --redberry-white: rgba(255, 255, 255, 1);
   --primary-bg: #0c0d0e;
   /* Main Parametere */
+  color: var(--redberry-red);
+  font-family: var(--row-font);
+  margin: 0;
 }
