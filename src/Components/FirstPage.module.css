@@ -1,0 +1,38 @@
+* {
+  overflow: hidden;
+  color: var(--redberry-white);
+  margin: 0;
+  padding: 0;
+}
+body {
+  border: 1px solid red;
+  height: 100vh;
+  width: auto;
+  background-color: var(--primary-bg);
+  background-image: url("../Pictures/stars.png");
+}
+#center {
+  height: 100vh;
+  width: auto;
+  border: 1px solid whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#mainText {
+  font-family: var(--row-font);
+  color: var(--redberry-red);
+  display: flex;
+}
+#start {
+  display: flex;
+  background-color: var(--redberry-red);
+}
+#application {
+  display: flex;
+}
+#rocketman {
+  height: 50vh;
+  width: auto;
+}

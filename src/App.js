@@ -1,5 +1,11 @@
+import FirstPage from "./Components/FirstPage";
+
 function App() {
-  return <div className="App">Hello World</div>;
+  return (
+    <div className="App">
+      <FirstPage />
+    </div>
+  );
 }
 
 export default App;

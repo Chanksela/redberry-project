@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Rowdies:wght@300&display=swap");
+
+* {
+  /* variables */
+  --mont-font: "Montserrat", sans-serif;
+  --row-font: "Rowdies", cursive;
+  --redberry-red: rgba(254, 59, 31, 1);
+  --redberry-white: rgba(255, 255, 255, 1);
+  --primary-bg: #0c0d0e;
+  /* Main Parametere */
+}
