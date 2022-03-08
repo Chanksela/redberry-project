@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import SurveyCSS from "./Survey.module.css";
 import {
   TextContentArray,
   TextTitleArray,
@@ -12,19 +11,6 @@ import Covid from "../Components/Covid";
 import RedBerryInsight from "../Components/RedBerryInsight";
 
 function Survey() {
-  // setting page number to control back and forward buttons
-  const [page, setPage] = useState(0);
-  // next page function
-  const nextPage = () => {
-    setPage((current) => current + 1);
-    console.log(page);
-  };
-  // prev page function
-  const prevPage = () => {
-    setPage((current) => current - 1);
-    console.log(page);
-  };
-
   // state for storing input data
   const [inputData, setInputData] = useState({
     token: "",
@@ -42,12 +28,29 @@ function Survey() {
     devtalk_topic: "",
     something_special: "",
   });
+  // setting page number to control back and forward buttons
+  const [page, setPage] = useState(0);
+  // next page function
+  const nextPage = () => {
+    setPage((current) => current + 1);
+    console.log(page);
+  };
+  // prev page function
+  const prevPage = () => {
+    setPage((current) => current - 1);
+    console.log(page);
+  };
+
   // switch case for diffrent pages
   const inputSwitch = () => {
     switch (page) {
       case 0:
         return (
-          <PersonalInfo inputData={inputData} setInputData={setInputData} />
+          <PersonalInfo
+            page={page}
+            inputData={inputData}
+            setInputData={setInputData}
+          />
         );
       case 1:
         return <TechSkills inputData={inputData} setInputData={setInputData} />;
@@ -61,20 +64,19 @@ function Survey() {
   };
 
   return (
-    <div id={SurveyCSS.container}>
-      <div id={SurveyCSS.left}>
+    <div>
+      <div>
         <h1>{InputTitleArray[page]}</h1>
         <div>{inputSwitch()}</div>
         {page < 4 ? (
           <>
-            <button
-              disabled={page === 0}
-              id={SurveyCSS.prev}
-              onClick={prevPage}
-            >
+            <button disabled={page === 0} onClick={prevPage}>
               {"<"}
             </button>
-            <button id={SurveyCSS.next} onClick={nextPage}>
+            <button
+              disabled={inputData.first_name.length < 3}
+              onClick={nextPage}
+            >
               {">"}{" "}
             </button>
           </>
@@ -91,7 +93,7 @@ function Survey() {
           </Link>
         )}
       </div>
-      <div id={SurveyCSS.right}>
+      <div>
         <h1>{TextTitleArray[page]}</h1>
         <p>{TextContentArray[page]}</p>
       </div>

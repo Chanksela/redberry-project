@@ -10,8 +10,6 @@ function PersonalInfo({ inputData, setInputData }) {
           setInputData({ ...inputData, first_name: e.target.value });
         }}
         value={inputData.first_name}
-        minLength="2"
-        required
       />
       <input
         type="text"
@@ -20,15 +18,11 @@ function PersonalInfo({ inputData, setInputData }) {
           setInputData({ ...inputData, last_name: e.target.value })
         }
         value={inputData.last_name}
-        minLength="2"
-        required
       />
       <input
         type="email"
         placeholder="E Mail"
         onChange={(e) => setInputData({ ...inputData, email: e.target.value })}
-        value={inputData.email}
-        required
       />
       <input
         type="tel"

@@ -1,5 +1,4 @@
 import React from "react";
-import SubmitCSS from "./Submit.module.css";
 function Submit({ page, prevPage, inputData }) {
   return (
     <div id={SubmitCSS.container}>

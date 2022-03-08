@@ -1,8 +1,7 @@
 import React from "react";
-import CovidCSS from "./Covid.module.css";
 function Covid({ inputData, setInputData }) {
   return (
-    <div id={CovidCSS.container}>
+    <div>
       <p>how would you prefer to work</p>
       <input
         name="work_preference"
