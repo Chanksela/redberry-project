@@ -10,10 +10,27 @@ function PersonalInfo({ page, setPage, inputData, setInputData }) {
     if (
       inputData.first_name.length < 3 ||
       inputData.last_name.length < 4 ||
-      !inputData.email.includes("@")
+      !inputData.email.includes("@") ||
+      (inputData.phone.length > 0 && !inputData.phone.includes("+9955"))
     ) {
       e.preventDefault();
-    } else {
+    }
+
+    if (
+      inputData.first_name.length > 3 &&
+      inputData.last_name.length > 4 &&
+      inputData.email.includes("@") &&
+      inputData.phone.length === 13 &&
+      inputData.phone.includes("+9955")
+    ) {
+      setPage((current) => current + 1);
+    }
+    if (
+      inputData.first_name.length > 3 &&
+      inputData.last_name.length > 4 &&
+      inputData.email.includes("@") &&
+      inputData.phone.length === 0
+    ) {
       setPage((current) => current + 1);
     }
 
@@ -32,11 +49,19 @@ function PersonalInfo({ page, setPage, inputData, setInputData }) {
     } else {
       setEmailError("");
     }
-    // if (inputData.phone.length < 13) {
-    //   setPhoneError("phone error");
-    // } else {
-    //   setPhoneError("");
-    // }
+    if (inputData.phone.length === 0) {
+      setPhoneError("");
+    }
+    if (
+      inputData.phone.length > 0 ||
+      (inputData.phone.length < 13 && !inputData.phone.includes("+9955"))
+    ) {
+      setPhoneError(
+        "phone number must be Georgian. Example: +995 5** ** ** **"
+      );
+    } else {
+      setPhoneError("");
+    }
   };
   // prev page function
   const prevPage = () => {
