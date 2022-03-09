@@ -9,11 +9,11 @@ import TechSkills from "../Components/TechSkills";
 import Covid from "../Components/Covid";
 import RedBerryInsight from "../Components/RedBerryInsight";
 import Submit from "../Components/Submit.js";
-
+var token = "8b3c3554-eef2-4147-98b5-e4694c656950";
 function Survey() {
   // state for storing input data
   const [inputData, setInputData] = useState({
-    token: "",
+    token: token,
     first_name: "",
     last_name: "",
     email: "",

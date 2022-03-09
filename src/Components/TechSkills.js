@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 function TechSkills({ page, setPage, inputData, setInputData }) {
   const baseURL = "https://bootcamp-2022.devtest.ge/api/skills";
   const [fetchedSkills, setFetchedSkills] = useState([]);
-  const [skillTitle, setSkillTitle] = useState("");
   const fetchedSkillsAPI = () => {
     fetch(baseURL)
       .then((response) => response.json())
