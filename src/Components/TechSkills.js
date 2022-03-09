@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function TechSkills({ inputData, setInputData }) {
+function TechSkills({ page, setPage, inputData, setInputData }) {
   const baseURL = "https://bootcamp-2022.devtest.ge/api/skills";
   const [fetchedSkills, setFetchedSkills] = useState([]);
   const fetchedSkillsAPI = () => {
@@ -11,6 +11,17 @@ function TechSkills({ inputData, setInputData }) {
   useEffect(() => {
     fetchedSkillsAPI();
   }, []);
+  const nextPage = (e) => {
+    setPage((current) => current + 1);
+
+    console.log(page);
+    console.log(inputData);
+  };
+  // prev page function
+  const prevPage = () => {
+    setPage((current) => current - 1);
+    console.log(page);
+  };
   return (
     <div>
       <select
@@ -36,7 +47,13 @@ function TechSkills({ inputData, setInputData }) {
             </option>
           );
         })}
-      </select>
+      </select>{" "}
+      <>
+        <button disabled={page === 0} onClick={prevPage}>
+          {"<"}
+        </button>
+        <button onClick={nextPage}>{">"} </button>
+      </>
     </div>
   );
 }

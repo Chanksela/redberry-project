@@ -9,6 +9,7 @@ import PersonalInfo from "../Components/PersonalInfo";
 import TechSkills from "../Components/TechSkills";
 import Covid from "../Components/Covid";
 import RedBerryInsight from "../Components/RedBerryInsight";
+import Submit from "../Components/Submit.js";
 
 function Survey() {
   // state for storing input data
@@ -31,15 +32,28 @@ function Survey() {
   // setting page number to control back and forward buttons
   const [page, setPage] = useState(0);
   // next page function
-  const nextPage = () => {
-    setPage((current) => current + 1);
-    console.log(page);
-  };
-  // prev page function
-  const prevPage = () => {
-    setPage((current) => current - 1);
-    console.log(page);
-  };
+  // const nextPage = (e) => {
+  //   if (
+  //     inputData.first_name.length < 3 ||
+  //     inputData.last_name.length < 4 ||
+  //     !inputData.email.includes("@") ||
+  //     (!inputData.phone.startsWith("+995") &&
+  //       inputData.phone.startsWith("+995")) ||
+  //     inputData.phone.length < 13
+  //   ) {
+  //     e.preventDefault();
+  //     setNameError("name should be greater than 3");
+  //   } else {
+  //     setPage((current) => current + 1);
+  //   }
+  //   console.log(page);
+  //   console.log(inputData);
+  // };
+  // // prev page function
+  // const prevPage = () => {
+  //   setPage((current) => current - 1);
+  //   console.log(page);
+  // };
 
   // switch case for diffrent pages
   const inputSwitch = () => {
@@ -47,17 +61,42 @@ function Survey() {
       case 0:
         return (
           <PersonalInfo
+            inputData={inputData}
+            setInputData={setInputData}
             page={page}
+            setPage={setPage}
+            // prevPage={prevPage}
+            // nextPage={nextPage}
+          />
+        );
+      case 1:
+        return (
+          <TechSkills
+            setPage={setPage}
             inputData={inputData}
             setInputData={setInputData}
           />
         );
-      case 1:
-        return <TechSkills inputData={inputData} setInputData={setInputData} />;
       case 2:
-        return <Covid inputData={inputData} setInputData={setInputData} />;
+        return (
+          <Covid
+            page={page}
+            setPage={setPage}
+            inputData={inputData}
+            setInputData={setInputData}
+          />
+        );
       case 3:
-        return <RedBerryInsight />;
+        return (
+          <RedBerryInsight
+            page={page}
+            setPage={setPage}
+            inputData={inputData}
+            setInputData={setInputData}
+          />
+        );
+      case 4:
+        return <Submit />;
       default:
         return null;
     }
@@ -68,17 +107,12 @@ function Survey() {
       <div>
         <h1>{InputTitleArray[page]}</h1>
         <div>{inputSwitch()}</div>
-        {page < 4 ? (
+        {/* {page < 4 ? (
           <>
             <button disabled={page === 0} onClick={prevPage}>
               {"<"}
             </button>
-            <button
-              disabled={inputData.first_name.length < 3}
-              onClick={nextPage}
-            >
-              {">"}{" "}
-            </button>
+            <button onClick={nextPage}>{">"} </button>
           </>
         ) : (
           <Link
@@ -91,7 +125,7 @@ function Survey() {
           >
             Submit
           </Link>
-        )}
+        )} */}
       </div>
       <div>
         <h1>{TextTitleArray[page]}</h1>

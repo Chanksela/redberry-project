@@ -1,5 +1,16 @@
 import React from "react";
-function Covid({ inputData, setInputData }) {
+function Covid({ page, setPage, inputData, setInputData }) {
+  const nextPage = (e) => {
+    setPage((current) => current + 1);
+
+    console.log(page);
+    console.log(inputData);
+  };
+  // prev page function
+  const prevPage = () => {
+    setPage((current) => current - 1);
+    console.log(page);
+  };
   return (
     <div>
       <p>how would you prefer to work</p>
@@ -39,7 +50,15 @@ function Covid({ inputData, setInputData }) {
       />
       <label htmlFor="hybrid">Hybrid</label>
       <br />
-      <button onClick={console.log(inputData.work_preference)}>Click</button>
+      <button onClick={console.log(inputData.work_preference)}>
+        Click
+      </button>{" "}
+      <>
+        <button disabled={page === 0} onClick={prevPage}>
+          {"<"}
+        </button>
+        <button onClick={nextPage}>{">"} </button>
+      </>
     </div>
   );
 }
