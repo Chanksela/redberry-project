@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import astro from "../Pictures/rocketman.png";
+import "./Welcome.css";
 function WelcomePage() {
   return (
     <div>

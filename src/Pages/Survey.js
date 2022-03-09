@@ -18,7 +18,7 @@ function Survey() {
     last_name: "",
     email: "",
     phone: "",
-    skills: [{ id: "", experience: "" }],
+    skills: [{ id: 0, experience: 0 }],
     work_preference: "",
     had_covid: "",
     had_covid_at: "",

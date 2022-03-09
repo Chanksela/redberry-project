@@ -1,18 +1,22 @@
 import React from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
-var token = "89nOpas|asdanjjh^&as";
+const URL = "https://bootcamp-2022.devtest.ge/api/applications";
+const token = "8b3c3554-eef2-4147-98b5-e4694c656950";
+const authAxios = axios.create({
+  baseURL: URL,
+  headers: { Authorization: `Bearer ${token}` },
+});
 function SubmitedItems() {
-  const fetchApplications = () => {
-    fetch("https://bootcamp-2022.devtest.ge/api/applications", {
-      method: "GET",
-      headers: {
-        token: token,
-      },
-    }).then((res) => res.json().then((data) => console.log(data)));
+  const fetchedApps = () => {
+    authAxios
+      .get(URL)
+      .then((response) => console.log(response.data))
+      .then((apps) => console.log(apps));
   };
   return (
     <>
-      <button onClick={fetchApplications}>Show Applications</button>
+      <button onClick={fetchedApps}>Show Applications</button>
       <Link to="/">Main Page</Link>
     </>
   );
