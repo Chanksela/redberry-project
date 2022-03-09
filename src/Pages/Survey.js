@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import {
   TextContentArray,
   TextTitleArray,
@@ -31,29 +30,6 @@ function Survey() {
   });
   // setting page number to control back and forward buttons
   const [page, setPage] = useState(0);
-  // next page function
-  // const nextPage = (e) => {
-  //   if (
-  //     inputData.first_name.length < 3 ||
-  //     inputData.last_name.length < 4 ||
-  //     !inputData.email.includes("@") ||
-  //     (!inputData.phone.startsWith("+995") &&
-  //       inputData.phone.startsWith("+995")) ||
-  //     inputData.phone.length < 13
-  //   ) {
-  //     e.preventDefault();
-  //     setNameError("name should be greater than 3");
-  //   } else {
-  //     setPage((current) => current + 1);
-  //   }
-  //   console.log(page);
-  //   console.log(inputData);
-  // };
-  // // prev page function
-  // const prevPage = () => {
-  //   setPage((current) => current - 1);
-  //   console.log(page);
-  // };
 
   // switch case for diffrent pages
   const inputSwitch = () => {
@@ -65,13 +41,12 @@ function Survey() {
             setInputData={setInputData}
             page={page}
             setPage={setPage}
-            // prevPage={prevPage}
-            // nextPage={nextPage}
           />
         );
       case 1:
         return (
           <TechSkills
+            page={page}
             setPage={setPage}
             inputData={inputData}
             setInputData={setInputData}
@@ -96,7 +71,7 @@ function Survey() {
           />
         );
       case 4:
-        return <Submit />;
+        return <Submit page={page} setPage={setPage} inputData={inputData} />;
       default:
         return null;
     }
@@ -107,25 +82,6 @@ function Survey() {
       <div>
         <h1>{InputTitleArray[page]}</h1>
         <div>{inputSwitch()}</div>
-        {/* {page < 4 ? (
-          <>
-            <button disabled={page === 0} onClick={prevPage}>
-              {"<"}
-            </button>
-            <button onClick={nextPage}>{">"} </button>
-          </>
-        ) : (
-          <Link
-            to="/submitted"
-            onClick={() => {
-              if (page === 4) {
-                console.log(inputData);
-              }
-            }}
-          >
-            Submit
-          </Link>
-        )} */}
       </div>
       <div>
         <h1>{TextTitleArray[page]}</h1>

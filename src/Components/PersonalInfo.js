@@ -1,19 +1,16 @@
 import React, { useState } from "react";
-
+import "./ErrorMessage.css";
 function PersonalInfo({ page, setPage, inputData, setInputData }) {
   const [nameError, setNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
   const nextPage = (e) => {
+    //input validations
     if (
       inputData.first_name.length < 3 ||
       inputData.last_name.length < 4 ||
       !inputData.email.includes("@")
-      //   ||
-      //   (!inputData.phone.startsWith("+995") &&
-      //     inputData.phone.startsWith("+995")) ||
-      //   inputData.phone.length < 13
-      // )
     ) {
       e.preventDefault();
     } else {
@@ -35,13 +32,15 @@ function PersonalInfo({ page, setPage, inputData, setInputData }) {
     } else {
       setEmailError("");
     }
-    console.log(page);
-    console.log(inputData);
+    // if (inputData.phone.length < 13) {
+    //   setPhoneError("phone error");
+    // } else {
+    //   setPhoneError("");
+    // }
   };
   // prev page function
   const prevPage = () => {
     setPage((current) => current - 1);
-    console.log(page);
   };
   return (
     <div>
@@ -53,7 +52,7 @@ function PersonalInfo({ page, setPage, inputData, setInputData }) {
         }}
         value={inputData.first_name}
       />
-      <p>{nameError}</p>
+      <p className="error_message">{nameError}</p>
       <input
         type="text"
         placeholder="Last Name"
@@ -62,19 +61,21 @@ function PersonalInfo({ page, setPage, inputData, setInputData }) {
         }
         value={inputData.last_name}
       />
-      <p>{lastNameError}</p>
+      <p className="error_message">{lastNameError}</p>
       <input
         type="email"
         placeholder="E Mail"
         onChange={(e) => setInputData({ ...inputData, email: e.target.value })}
+        value={inputData.email}
       />
-      <p>{emailError}</p>
+      <p className="error_message">{emailError}</p>
       <input
         type="tel"
         placeholder="+995 5__ __ __ __ "
         onChange={(e) => setInputData({ ...inputData, phone: e.target.value })}
         value={inputData.phone}
       />{" "}
+      <p className="error_message">{phoneError}</p>
       <>
         <button disabled={page === 0} onClick={prevPage}>
           {"<"}

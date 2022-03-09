@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 function TechSkills({ page, setPage, inputData, setInputData }) {
   const baseURL = "https://bootcamp-2022.devtest.ge/api/skills";
   const [fetchedSkills, setFetchedSkills] = useState([]);
+  const [skillTitle, setSkillTitle] = useState("");
   const fetchedSkillsAPI = () => {
     fetch(baseURL)
       .then((response) => response.json())
@@ -11,22 +12,18 @@ function TechSkills({ page, setPage, inputData, setInputData }) {
   useEffect(() => {
     fetchedSkillsAPI();
   }, []);
-  const nextPage = (e) => {
+  const nextPage = () => {
     setPage((current) => current + 1);
-
-    console.log(page);
-    console.log(inputData);
   };
   // prev page function
   const prevPage = () => {
     setPage((current) => current - 1);
-    console.log(page);
   };
   return (
     <div>
       <select
         onClick={(e) => {
-          console.log(e.target.key);
+          console.log(e.target.value);
           setInputData({
             ...inputData,
             // need to solve id/key value problem
@@ -43,11 +40,14 @@ function TechSkills({ page, setPage, inputData, setInputData }) {
           return (
             <option key={skill.id} value={skill.title}>
               {skill.title}
-              {skill.id}
             </option>
           );
         })}
       </select>{" "}
+      <div>{/* <p>{skillTitle}</p> */}</div>
+      <div>
+        <button onClick={() => console.log(inputData.skills)}>Click</button>
+      </div>
       <>
         <button disabled={page === 0} onClick={prevPage}>
           {"<"}
