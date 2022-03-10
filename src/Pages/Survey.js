@@ -4,6 +4,7 @@ import {
   TextTitleArray,
   InputTitleArray,
 } from "../Content/ContentArrays.js";
+import SurveyCSS from "./Survey.module.css";
 import PersonalInfo from "../Components/PersonalInfo";
 import TechSkills from "../Components/TechSkills";
 import Covid from "../Components/Covid";
@@ -78,12 +79,14 @@ function Survey() {
   };
 
   return (
-    <div>
-      <div>
-        <h1>{InputTitleArray[page]}</h1>
+    <div id={SurveyCSS.container}>
+      <div id={SurveyCSS.left}>
+        <div>
+          <h1>{InputTitleArray[page]}</h1>
+        </div>
         <div>{inputSwitch()}</div>
       </div>
-      <div>
+      <div id={SurveyCSS.right}>
         <h1>{TextTitleArray[page]}</h1>
         <p>{TextContentArray[page]}</p>
       </div>

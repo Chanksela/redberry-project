@@ -116,11 +116,7 @@ function Covid({ page, setPage, inputData, setInputData }) {
       <label htmlFor="hybrid">Hybrid</label>
       <br />
       <p className="error_message">{workErrorMessage}</p>
-      <br />{" "}
-      <button onClick={() => console.log(inputData.work_preference)}>
-        Click
-      </button>{" "}
-      {/* covid infection */}
+      <br /> {/* covid infection */}
       <p>were you covid infected?</p>
       <input
         name="covid_infection"
@@ -144,9 +140,6 @@ function Covid({ page, setPage, inputData, setInputData }) {
       />
       <label htmlFor="no">No</label> <br />
       <p className="error_message">{covidErrorMessage}</p>
-      <button onClick={() => console.log(typeof inputData.had_covid)}>
-        Click
-      </button>{" "}
       {/* Covid date */}
       {inputData.had_covid > 0 ? (
         <div>
@@ -161,9 +154,6 @@ function Covid({ page, setPage, inputData, setInputData }) {
             }}
           />
           <p className="error_message">{covidDateErrorMessage}</p>
-          <button onClick={() => console.log(inputData.had_covid_at)}>
-            Click
-          </button>{" "}
           <div>
             {" "}
             <p>are you vaccinated?</p>
@@ -189,9 +179,6 @@ function Covid({ page, setPage, inputData, setInputData }) {
             />
             <label htmlFor="not_vaccinated">No</label> <br />
             <p className="error_message">{vaccinatedErrorMessage}</p>
-            <button onClick={() => console.log(inputData.vaccinated)}>
-              Click
-            </button>{" "}
           </div>
         </div>
       ) : (
@@ -210,9 +197,6 @@ function Covid({ page, setPage, inputData, setInputData }) {
             }}
           />
           <p className="error_message">{vaccinatedDateErrorMessage}</p>
-          <button onClick={() => console.log(inputData.vaccinated_at)}>
-            Click
-          </button>{" "}
         </div>
       ) : (
         ""

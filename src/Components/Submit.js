@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import SubmitCSS from "./Submit.module.css";
 function Submit({ page, setPage, inputData }) {
   function postData() {
     const URL = "https://bootcamp-2022.devtest.ge/api/application";
@@ -15,15 +16,13 @@ function Submit({ page, setPage, inputData }) {
     console.log(inputData);
   };
   return (
-    <div>
-      Submit{" "}
-      <div>
-        <button disabled={page === 0} onClick={prevPage}>
-          GO BACK
-        </button>
-        <button onClick={() => console.log(inputData)}>INPUTDATA</button>
-        <button onClick={() => postData()}>SEND DATA</button>
-      </div>
+    <div id={SubmitCSS.main}>
+      <button id={SubmitCSS.back} disabled={page === 0} onClick={prevPage}>
+        Back
+      </button>
+      <button to="/submitted" id={SubmitCSS.submit} onClick={postData}>
+        Submit
+      </button>
     </div>
   );
 }

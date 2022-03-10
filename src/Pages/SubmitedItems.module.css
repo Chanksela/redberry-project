@@ -1,0 +1,29 @@
+#main {
+  display: flex;
+  background-color: var(--primary-bg);
+  color: var(--redberry-white);
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+.application {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+#applications {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#main_page {
+  text-decoration: none;
+  text-align: center;
+  align-items: center;
+  width: 25vw;
+  background-color: var(--redberry-red);
+  border-radius: 50px;
+  color: var(--redberry-white);
+}

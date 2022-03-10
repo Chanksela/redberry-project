@@ -1,0 +1,32 @@
+h1 {
+  color: var(--redberry-red);
+  font-family: var(--row-font);
+}
+p {
+  font-family: var(--mont-font);
+  font-weight: 900;
+  text-align: justify;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+#left {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  align-items: center;
+}
+
+#right {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  background-color: var(--primary-bg);
+  color: var(--redberry-white);
+  align-items: center;
+}

@@ -1,16 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import astro from "../Pictures/rocketman.png";
-import "./Welcome.css";
+import WelcomeCSS from "./Welcome.module.css";
 function WelcomePage() {
   return (
-    <div>
+    <div id={WelcomeCSS.main}>
+      <h1>Welcome Rocketeer!</h1>
       <div>
-        <h1>Welcome Rocketeer!</h1>
-        <Link to="/survey">Start Questionnaire</Link>
-        <Link to="/submitted">Submitted Applications</Link>
-        <img src={astro} alt="rocketman" />
+        {" "}
+        <Link to="/survey" id={WelcomeCSS.survey_btn}>
+          Start Questionnaire
+        </Link>
+        <br />
+        <Link to="/submitted" id={WelcomeCSS.submitted_btn}>
+          Submitted Applications
+        </Link>
       </div>
+
+      <img src={astro} alt="rocketman" />
     </div>
   );
 }

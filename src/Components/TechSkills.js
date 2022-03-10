@@ -41,7 +41,11 @@ function TechSkills({ page, setPage, inputData, setInputData }) {
         );
       })}
       <div>
-        <input type="number" onChange={(e) => setExperience(e.target.value)} />
+        <input
+          type="number"
+          min="0"
+          onChange={(e) => setExperience(e.target.value)}
+        />
       </div>
       <div>
         <h1>{skill}</h1>
@@ -62,7 +66,7 @@ function TechSkills({ page, setPage, inputData, setInputData }) {
             });
           }}
         >
-          ADD
+          CLICK TO ADD SKILL AND EXP
         </button>
       </div>
       <>

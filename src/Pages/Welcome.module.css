@@ -1,0 +1,27 @@
+#main {
+  background-image: url("../Pictures/stars.png");
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: var(--primary-bg);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  color: var(--redberry-red);
+}
+a {
+  text-decoration: none;
+  color: var(--redberry-white);
+}
+#survey_btn {
+  background-color: var(--redberry-red);
+  border-radius: 50px;
+}
+#submitted_btn {
+  text-decoration: underline;
+}
+img {
+  height: 30vh;
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import SubmitedCSS from "./SubmitedItems.module.css";
 const token = "8b3c3554-eef2-4147-98b5-e4694c656950";
 const URL = `https://bootcamp-2022.devtest.ge/api/applications?token=${token}`;
 const authAxios = axios.create({
@@ -21,10 +22,10 @@ function SubmitedItems() {
   }, []);
   const lastItem = fetchedApplications.length - 1;
   return (
-    <div>
+    <div id={SubmitedCSS.main}>
       {fetchedApplications.length > 1 ? (
-        <div>
-          <div>
+        <div id={SubmitedCSS.applications}>
+          <div className={SubmitedCSS.application}>
             <p>{fetchedApplications[lastItem].first_name}</p>
             <p>{fetchedApplications[lastItem].last_name}</p>
             <p>{fetchedApplications[lastItem].email}</p>
@@ -39,7 +40,7 @@ function SubmitedItems() {
             <p>{fetchedApplications[lastItem].something_special}</p>
             <p>{fetchedApplications[lastItem].skills[0].experience} years</p>
           </div>{" "}
-          <div>
+          <div className={SubmitedCSS.application}>
             <p>{fetchedApplications[lastItem - 1].first_name}</p>
             <p>{fetchedApplications[lastItem - 1].last_name}</p>
             <p>{fetchedApplications[lastItem - 1].email}</p>
@@ -56,7 +57,7 @@ function SubmitedItems() {
               {fetchedApplications[lastItem - 1].skills[0].experience} years
             </p>
           </div>{" "}
-          <div>
+          <div className={SubmitedCSS.application}>
             <p>{fetchedApplications[lastItem - 2].first_name}</p>
             <p>{fetchedApplications[lastItem - 2].last_name}</p>
             <p>{fetchedApplications[lastItem - 2].email}</p>
@@ -77,7 +78,9 @@ function SubmitedItems() {
       ) : (
         ""
       )}
-      <Link to="/">Main Page</Link>
+      <Link to="/" id={SubmitedCSS.main_page}>
+        Main Page
+      </Link>
     </div>
   );
 }
