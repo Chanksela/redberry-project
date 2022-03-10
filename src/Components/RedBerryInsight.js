@@ -66,9 +66,6 @@ function RedBerryInsight({ page, setPage, inputData, setInputData }) {
         />
         <label htmlFor="no-devtalk">No</label> <br />
         <p className="error_message">{devtalkErrorMessage}</p>
-        <button onClick={() => console.log(inputData.will_organize_devtalk)}>
-          Click
-        </button>{" "}
       </div>
       {inputData.will_organize_devtalk === true ? (
         <div>
